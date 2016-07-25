@@ -11,10 +11,10 @@ import warnings
 from enum import Enum
 
 class TimeboxMethod(Enum):
-   Seconds = 4
-   Minutes = 3
-   Hours = 2
-   Days = 1
+   Seconds = 1
+   Minutes = 2
+   Hours = 3
+   Days = 4
 
 def stdin_from_pipe():
    return not os.isatty(sys.stdin.fileno())
