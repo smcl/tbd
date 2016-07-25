@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# split this into separate files when > 100 lines ...
+
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
@@ -8,9 +10,7 @@ import datetime
 import dateutil.parser
 import warnings
 
-from enum import Enum
-
-class TimeboxMethod(Enum):
+class TimeboxMethod():
    Seconds = 1
    Minutes = 2
    Hours = 3
@@ -27,13 +27,13 @@ def read_input(datafile, separator):
 
 # iterate over each time + box it (return dictionary)
 def process_data(data, method):
-   if method.value > TimeboxMethod.Seconds.value:
+   if method.value > TimeboxMethod.Seconds:
       data = [ d.replace(second=0) for d in data ]
 
-   if method.value > TimeboxMethod.Minutes.value:
+   if method.value > TimeboxMethod.Minutes:
       data = [ d.replace(minute=0) for d in data ]
 
-   if method.value > TimeboxMethod.Hours.value:
+   if method.value > TimeboxMethod.Hours:
       data = [ d.replace(hour=0) for d in data ]
 
    output_data = {}
