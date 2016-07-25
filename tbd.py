@@ -27,13 +27,13 @@ def read_input(datafile, separator):
 
 # iterate over each time + box it (return dictionary)
 def process_data(data, method):
-   if method.value > TimeboxMethod.Seconds:
+   if method > TimeboxMethod.Seconds:
       data = [ d.replace(second=0) for d in data ]
 
-   if method.value > TimeboxMethod.Minutes:
+   if method > TimeboxMethod.Minutes:
       data = [ d.replace(minute=0) for d in data ]
 
-   if method.value > TimeboxMethod.Hours:
+   if method > TimeboxMethod.Hours:
       data = [ d.replace(hour=0) for d in data ]
 
    output_data = {}
